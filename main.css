@@ -33,6 +33,7 @@ header button:hover{
 .content{
   text-align: center;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   box-shadow: 0px 0px 8px 0px black;
@@ -104,9 +105,16 @@ form button{
   border-radius: 10px;
   border: none;
 }
-/* .invisible{
+.invisible{
   display: none;
+  transition: ease-in-out .5s;
 }
 .visible{
   display: block;
-} */
+  transition: ease-in-out .5s;
+}
+.added-Movie{
+  display: flex;
+  flex-direction: row;
+  font-size: 12px;
+}
