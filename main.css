@@ -32,15 +32,18 @@ header button:hover{
 }
 .content{
   text-align: center;
-  margin-top: 8em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 8px 0px black;
+  border: none;
+  margin: 4em 9em;
+  padding: 2em;
+  border-radius: 10px;
 }
 .content p{
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 25px;
   background-color: white;
-  box-shadow: 0px 0px 8px 0px black;
-  border: none;
-  margin: 0em 9em;
-  padding: 2em;
-  border-radius: 10px;
+ 
 }
