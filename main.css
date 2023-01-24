@@ -47,3 +47,10 @@ header button:hover{
   background-color: white;
  
 }
+
+.visible{
+  display: none;
+}
+.invisible{
+  display: block;
+}
