@@ -4,6 +4,7 @@ const startAddMovieButton = document.querySelector('header button');
 const cancelModal = document.querySelector('.btn--passive');
 const confirmAddMovieButton = document.querySelector('.btn--success');
 const userInputes = addMovieModal.querySelectorAll('input');
+const entryTextSection = document.querySelector('#entry-text');
 
 const movies = [];
 
@@ -51,6 +52,16 @@ const addMovieHandler = () =>{
      console.log(movies);
      clearUserInput();
      closeModal();
+}
+
+const updateUi = () =>{
+
+  if(movies.length === 0) {
+
+  } else {
+    entryTextSection.style.display = 'none';
+  }
+
 }
 startAddMovieButton.addEventListener('click',toggleMovieModal);
 cancelModal.addEventListener('click' , closeModal);
