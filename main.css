@@ -24,6 +24,11 @@ header button{
   padding: 1rem;
   font-size: 20px;
   font-weight: bold;
+  transition: ease-in-out .5s;
+}
+header button:hover{
+  background-color: rgb(255, 223, 164);
+  color: black;
 }
 .content{
   text-align: center;
