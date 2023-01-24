@@ -15,16 +15,11 @@ const closeModal = () =>{
 addBackdrop.classList.remove('visible');
   addMovieModal.classList.remove('visible');
 }
-cancelModal.addEventListener('click' , () =>{
-  closeModal();
-  
-})
-addBackdrop.addEventListener('click', ()=>{
-  closeModal();
-})
 
 const toggleBackdrop = () =>{
   addBackdrop.classList.toggle('visible');
 }
 startAddMovieButton.addEventListener('click',toggleMovieModal);
+cancelModal.addEventListener('click' , closeModal);
+addBackdrop.addEventListener('click',closeModal);
 
