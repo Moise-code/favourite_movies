@@ -20,6 +20,7 @@ const toggleMovieModal = () => {
 const closeModal = () => {
   addBackdrop.classList.remove("visible");
   addMovieModal.classList.remove("visible");
+  clearUserInput();
   cancelMovieDeletion();
 };
 
