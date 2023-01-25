@@ -65,6 +65,11 @@ const updateUi = () => {
   }
 };
 
+// function to delete movie 
+const deleteMovieHandler = () =>{
+
+}
+
 // function to add the new movies to the ui
 
 const renderNewMovieElement = (title, imageUrl, rating) => {
@@ -80,6 +85,7 @@ const renderNewMovieElement = (title, imageUrl, rating) => {
   <p>${rating}/5 stars</p>
    </div>
   `;
+  newMovieElement.addEventListener('click', deleteMovieHandler)
   movieList.append(newMovieElement);
 };
 
