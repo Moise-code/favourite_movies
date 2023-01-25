@@ -6,22 +6,26 @@ const confirmAddMovieButton = document.querySelector(".btn--success");
 const userInputes = addMovieModal.querySelectorAll("input");
 const entryTextSection = document.querySelector("#entry-text");
 const movieList = document.querySelector("#movie-list");
-
+const deleteModal = document.querySelector('#delete-modal')
+const deleteYesButton = document.querySelector('.btn--danger')
+const deleteNoButton = document.querySelector('#noModal')
 const movies = [];
 
 const toggleMovieModal = () => {
   // function to add the modal after clicking the add movie button.
   addMovieModal.classList.toggle("visible");
-  toggleBackdrop();
+  toggleBackdrop(); 
 };
 
 const closeModal = () => {
   addBackdrop.classList.remove("visible");
   addMovieModal.classList.remove("visible");
+  cancelMovieDeletion();
 };
 
 const toggleBackdrop = () => {
   addBackdrop.classList.toggle("visible");
+
 };
 const clearUserInput = () => {
   for (const usrInput of userInputes) {
@@ -66,20 +70,41 @@ const updateUi = () => {
   }
 };
 
-// function to delete movie 
-const deleteMovieHandler = (movieId) =>{
-let movieIndex = 0;
-for (const movie of movies){
-  if(movie.id === movieId){
-    break;
+//function to allow the user choose weither or not to delete the movie
+
+const deleteMovie = movieId =>{
+  let movieIndex = 0;
+  for (const movie of movies){
+    if(movie.id === movieId){
+      break;
+    }
+    movieIndex++;
   }
-  movieIndex++;
+  
+  movies.splice(movieIndex, 1);
+
+  // movieList. children[movieIndex].remove();
+
+  movieList.removeChild(movieList.children[movieIndex]);
+  cancelMovieDeletion();
+  updateUi();
+  
+
 }
 
-movies.splice(movieIndex, 1);
-movieList.children[movieIndex].remove();
-updateUi();
+// function to cancel the delete movie modal
 
+const cancelMovieDeletion = () =>{
+  addBackdrop.classList.remove('visible');
+  deleteModal.classList.remove('visible')
+}
+
+// function to delete movie 
+const deleteMovieHandler = (movieId) =>{
+  deleteModal.classList.add('visible');
+  toggleBackdrop();
+  
+  deleteYesButton.addEventListener('click', deleteMovie.bind(null, movieId));
 }
 
 // function to add the new movies to the ui
@@ -105,3 +130,5 @@ startAddMovieButton.addEventListener("click", toggleMovieModal);
 cancelModal.addEventListener("click", closeModal);
 addBackdrop.addEventListener("click", closeModal);
 confirmAddMovieButton.addEventListener("click", addMovieHandler);
+deleteNoButton.addEventListener('click', cancelMovieDeletion);
+ 
