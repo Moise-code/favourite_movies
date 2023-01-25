@@ -52,12 +52,13 @@ const addMovieHandler = () =>{
      console.log(movies);
      clearUserInput();
      closeModal();
+     updateUi();
 }
 
 const updateUi = () =>{
 
   if(movies.length === 0) {
-
+    entryTextSection.style.display = 'block';
   } else {
     entryTextSection.style.display = 'none';
   }
