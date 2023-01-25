@@ -45,6 +45,7 @@ const addMovieHandler = () => {
     +ratingValue > 5
   ) {
     alert("please use valid information and rating from 1 to 5");
+    return;
   }
 
   // creating the object to get the input values
@@ -105,6 +106,7 @@ const deleteMovieHandler = (movieId) =>{
   deleteModal.classList.add('visible');
   toggleBackdrop();
   
+  deleteYesButton.addEventListener('click', cancelMovieDeletion);
   deleteYesButton.addEventListener('click', deleteMovie.bind(null, movieId));
 }
 
@@ -131,5 +133,6 @@ startAddMovieButton.addEventListener("click", toggleMovieModal);
 cancelModal.addEventListener("click", closeModal);
 addBackdrop.addEventListener("click", closeModal);
 confirmAddMovieButton.addEventListener("click", addMovieHandler);
+deleteNoButton.removeEventListener('click', cancelMovieDeletion);
 deleteNoButton.addEventListener('click', cancelMovieDeletion);
  
